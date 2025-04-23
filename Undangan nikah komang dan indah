@@ -1,0 +1,94 @@
+<!DOCTYPE html><html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Undangan Komang & Indah</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #fffaf7;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+    .container {
+      max-width: 420px;
+      width: 100%;
+      text-align: center;
+    }
+    h1 {
+      font-size: 2em;
+      margin-top: 0.5em;
+    }
+    .date-time {
+      margin: 1em 0;
+    }
+    .countdown {
+      font-size: 1.5em;
+      font-weight: bold;
+      margin: 1em 0;
+    }
+    .btn {
+      display: inline-block;
+      background-color: #d4a373;
+      color: white;
+      padding: 10px 20px;
+      margin: 0.5em;
+      border-radius: 8px;
+      text-decoration: none;
+    }
+    .footer {
+      margin-top: 2em;
+      font-size: 0.9em;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Komang & Indah</h1>
+    <p class="date-time">25 Maret 2026 | 08:00 WIB - Selesai</p>
+    <p>Dengan penuh sukacita, kami mengundang Anda untuk hadir di hari bahagia kami.</p><div class="countdown" id="countdown">Loading...</div>
+
+<a class="btn" href="#" target="_blank">Lihat Lokasi</a>
+<a class="btn" href="#" target="_blank">Kirim RSVP</a>
+<a class="btn" href="#" onclick="toggleMusic()">Putar Musik</a>
+
+<div class="footer">Undangan Digital © 2025</div>
+
+  </div>  <audio id="bg-music" loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mpeg">
+  </audio>  <script>
+    const countdownEl = document.getElementById("countdown");
+    const targetDate = new Date("2026-03-25T01:00:00Z");
+
+    function updateCountdown() {
+      const now = new Date();
+      const distance = targetDate - now;
+      if (distance < 0) {
+        countdownEl.innerText = "Hari Bahagia Telah Tiba!";
+        return;
+      }
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((distance / (1000 * 60)) % 60);
+      const seconds = Math.floor((distance / 1000) % 60);
+      countdownEl.innerText = `${days} hari ${hours} jam ${minutes} menit ${seconds} detik`;
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+
+    function toggleMusic() {
+      const music = document.getElementById('bg-music');
+      if (music.paused) {
+        music.play();
+      } else {
+        music.pause();
+      }
+    }
+  </script></body>
+</html>
